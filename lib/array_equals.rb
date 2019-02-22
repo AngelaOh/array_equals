@@ -5,29 +5,29 @@ def array_equals(array1, array2)
   # check if any arrays == nil
   check_nils_arr = [array1, array2]
   no_nil = true
-  check_nils_arr.each do |array|
-    if array == nil
-      no_nil = false
-    end
+  index = 0
+
+  2.times do
+    no_nil = false if check_nils_arr[index] == nil
+    index += 1
   end
 
+  is_same = true
   if no_nil
-    # order matters, iterate through larger array
-    if array2.length > array1.length
-      first_arr = array2
-      second_arr = array1
+    # if length is not same, arrays can't be equal
+    if array2.length != array1.length
+      is_same = false
     else
-      first_arr = array1
-      second_arr = array2
-    end
-
-    is_same = true
-    # determine if values are equal or not
-    first_arr.each_with_index do |item, index|
-      if item != second_arr[index]
-        is_same = false
+      index = 0
+      times_loop_num = array1.length - 1
+      (times_loop_num).times do
+        if array1[index] != array2[index]
+          is_same = false
+        end
+        index += 1
       end
     end
+    ## determine if values are equal or not
   else #if any array contains nil
     if array1 == array2
       is_same = true
@@ -39,4 +39,4 @@ def array_equals(array1, array2)
   return is_same
 end
 
-p array_equals(nil, nil)
+# p array_equals(nil, nil)
