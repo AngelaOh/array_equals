@@ -16,10 +16,8 @@ def array_equals(array1, array2)
     if array2.length != array1.length
       is_same = false
     else
-      index = 0
-      (array1.length - 1).times do
+      (array1.length - 1).times do |index|
         is_same = false if array1[index] != array2[index]
-        index += 1
       end
     end
   else #if any array contains nil
