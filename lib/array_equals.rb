@@ -5,10 +5,8 @@ def array_equals(array1, array2)
   # check if any arrays == nil
   check_nils_arr = [array1, array2]
   no_nil = true
-  index = 0
-  2.times do
+  check_nils_arr.length.times do |index|
     no_nil = false if check_nils_arr[index] == nil
-    index += 1
   end
 
   is_same = true
